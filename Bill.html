@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Bill Calculator</title>
+</head>
+<body>
+
+    <h2>Final Bill Calculator</h2>
+
+    <label>Enter Bill Amount:</label>
+    <input type="number" id="amount">
+
+    <button onclick="Bill()">Calculate Bill</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function Bill() {
+            let bill = Number(document.getElementById("amount").value);
+            let dis;
+
+            if (bill > 2000) {
+                dis = 15;
+            } else {
+                dis = 5;
+            }
+
+            let total = bill - (bill * dis / 100);
+
+            document.getElementById("result").innerHTML =
+                "Original Bill: Rs. " + bill +
+                "<br>Discount: " + dis + "%" +
+                "<br>Final Payable Amount: Rs. " + total;
+
+            return total;
+        }
+    </script>
+
+</body>
+</html>

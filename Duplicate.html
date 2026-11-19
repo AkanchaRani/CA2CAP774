@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Duplicate Finder</title>
+</head>
+<body>
+
+    <h2>Duplicate Element Finder</h2>
+
+    <script>
+
+        let arr = [101, 20, 101, 30, 45, 20, 50, 10, 60, 30];
+
+        let unique = [];
+
+        document.write("Original Array: " + arr + "<br><br>");
+
+        for (let i = 0; i < arr.length; i++) {
+
+            let found = false;
+
+            for (let j = 0; j < unique.length; j++) {
+                if (arr[i] == unique[j]) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found == false) {
+                unique[unique.length] = arr[i];
+            }
+        }
+
+        document.write("Array Without Duplicates: " + unique);
+
+        document.write("<br><br>Duplicate Details:<br>");
+
+        for (let i = 0; i < arr.length; i++) {
+
+            let count = 0;
+            let index = "";
+
+            for (let j = 0; j < arr.length; j++) {
+
+                if (arr[i] == arr[j]) {
+                    count++;
+                    index = index + j + " ";
+                }
+            }
+
+            let first = true;
+
+            for (let k = 0; k < i; k++) {
+                if (arr[i] == arr[k]) {
+                    first = false;
+                    break;
+                }
+            }
+
+            if (count > 1 && first == true) {
+
+                document.write(
+                    "<br>Value: " + arr[i] +
+                    "<br>Count: " + count +
+                    "<br>Indexes: " + index +
+                    "<br>"
+                );
+            }
+        }
+
+    </script>
+
+</body>
+</html>
